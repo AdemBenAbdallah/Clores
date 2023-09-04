@@ -1,20 +1,35 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        my_bg_image: "url('../public/bg/home.jpg')",
+        section1: "url('../public/bg/section1.jpg')",
+        section2: "url('../public/bg/section2.webp')",
+        section3: "url('../public/bg/section3.jpg')",
+        section4: "url('../public/bg/section4.jpeg')",
+        shop1: "url('../public/bg/shop1.jpg')",
+        shop2: "url('../public/bg/shop2.jpg')",
+        shop3: "url('../public/bg/shop3.jpg')",
+        shop4: "url('../public/bg/shop4.jpg')",
+        perfect: "url('../public/bg/perfectPlant.avif')",
+        footer: "url('../public/bg/footer2.jpeg')",
+      },
+      colors: {
+        light: "#b8b8b8",
+        primary: "#757E78",
+        seconday: "#252525",
+        thirdly: "#999999",
+        gray_white: "#f2f2f2",
       },
     },
   },
-  plugins: [],
-}
-export default config
+  plugins: [require("daisyui")],
+};
+export default config;
