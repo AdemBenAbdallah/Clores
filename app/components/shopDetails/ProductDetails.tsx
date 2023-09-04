@@ -17,11 +17,12 @@ const ProductDetails = () => {
     };
 
     return (
-        <div className='flex gap-12 justify-center text-seconday'>
+        <div className='flex gap-3 md:gap-12 flex-col md:flex-row justify-center text-seconday'>
             <div>
                 <h3 className='pt-4 pb-1'><span className='text-light'>Shop/</span>Shop Details</h3>
-                <div className="flex flex-col items-end gap-4">
+                <div className="flex flex-col items-end gap-4 w-full">
                     <Image
+                        className='max-md:w-full'
                         src={mainImage}
                         alt="product"
                         width={500}
@@ -56,7 +57,7 @@ const ProductDetails = () => {
                 </div>
             </div>
 
-            <div className="mt-12 flex flex-col gap-8">
+            <div className="mt-12 flex flex-col gap-3 md:gap-8">
                 <div className="flex flex-col gap-2">
                     <h1 className='text-xl'>Spider Plant Hower</h1>
                     <div className="flex gap-2 items-center">
@@ -64,11 +65,12 @@ const ProductDetails = () => {
                             {Array(5).fill(null).map((_, index) => (
                                 <Image
                                     key={index}
+                                    layout='intrinsic'
                                     src="/assests/icons/star.svg"
                                     width={20}
                                     height={20}
                                     alt="rating star"
-                                    className="object-contain m-0"
+                                    className="object-cover md:object-contain  m-0"
                                 />
                             ))}
                         </div>
@@ -80,7 +82,7 @@ const ProductDetails = () => {
                 <p>Lorem ipsum dolor sit.</p>
                 <div className="flex flex-col gap-2">
                     <h3>Description</h3>
-                    <p className='text-light mb-1 w-[29rem]'>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    <p className='text-light mb-1 w-[20rem] md:w-[29rem]'>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                         Ex incidunt exercitationem autem possimus debitis alias
                         quia maxime facere vero? Officiis magnam veritatis excepturi!
                     </p>

@@ -34,6 +34,10 @@ const UserMenu = () => {
         }
     }, [isOpen, onClose])
 
+    const navigate = (routeName: string) => {
+        onClose()
+        router.push(`/${routeName}`)
+    }
     return (
         <>
             <div className="hidden md:flex items-center gap-10 text-xl">
@@ -52,9 +56,9 @@ const UserMenu = () => {
                         className="md:hidden absolute top-0 bottom-0 w-[50vw] h-screen right-0 p-4 bg-black flex-center"
                     >
                         <div className="flex flex-col gap-11">
-                            <p className="cursor-pointer" onClick={() => router.push('/aboutus')}>About Us</p>
-                            <p className="cursor-pointer" onClick={() => router.push('/shop')}>Shop</p>
-                            <p className="cursor-pointer" onClick={() => router.push('/blog')}>Blog</p>
+                            <p className="cursor-pointer" onClick={() => navigate('aboutus')}>About Us</p>
+                            <p className="cursor-pointer" onClick={() => navigate('shop')}>Shop</p>
+                            <p className="cursor-pointer" onClick={() => navigate('blog')}>Blog</p>
                             <p className="cursor-pointer">Contact</p>
                         </div>
                     </motion.div>

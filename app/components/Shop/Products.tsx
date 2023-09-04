@@ -59,7 +59,7 @@ const Products = () => {
                 </select>
 
             </div>
-            <div className="py-1 px-5 flex flex-wrap gap-3">
+            <div className="py-1 px-5 flex flex-wrap justify-center gap-3">
                 {products.map(({ imgSrc, title, nbStar, rate, price }, index) => (
                     <Product
                         key={index}

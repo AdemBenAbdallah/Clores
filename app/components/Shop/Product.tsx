@@ -17,7 +17,7 @@ const Product: React.FC<ProductProps> = ({ imgSrc, title, nbStar, rate, price })
     return (
         <div
             onClick={() => router.push('/shop/345')}
-            className='bg-white cursor-pointer max-sm:w-[9rem]'
+            className='bg-white cursor-pointer max-sm:w-[10rem]'
         >
             <Image
                 className='p-2'
