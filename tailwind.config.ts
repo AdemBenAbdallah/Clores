@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        my_bg_image: "url('../public/bg/home.jpg')",
-        section1: "url('../public/bg/section1.jpg')",
+        my_bg_image: "url('../public/bg/home.webp')",
+        section1: "url('../public/bg/section1.webp')",
         section2: "url('../public/bg/section2.webp')",
-        section3: "url('../public/bg/section3.jpg')",
-        section4: "url('../public/bg/section4.jpeg')",
+        section3: "url('../public/bg/section3.webp')",
+        section4: "url('../public/bg/section4.webp')",
         shop1: "url('../public/bg/shop1.jpg')",
         shop2: "url('../public/bg/shop2.jpg')",
         shop3: "url('../public/bg/shop3.jpg')",

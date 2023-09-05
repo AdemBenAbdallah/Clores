@@ -2,7 +2,8 @@ import Image from 'next/image'
 import React from 'react'
 
 
-const page = () => {
+const page = async () => {
+
     return (
         <div className="flex-center bg-gray_white">
             <div className='px-6 md:px-20 py-36 flex flex-col gap-12 justify-center text-seconday'>

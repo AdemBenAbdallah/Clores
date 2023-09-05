@@ -2,6 +2,8 @@ import Image from 'next/image'
 import React from 'react'
 
 const page = () => {
+    
+
     return (
         <div className="flex-center bg-gray_white">
             <div className='px-3 md:py-12 lg:py-20 py-20 flex flex-col gap-10 text-seconday w-[54rem]'>

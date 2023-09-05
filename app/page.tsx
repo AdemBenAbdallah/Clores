@@ -3,6 +3,8 @@ import Info from './components/Info'
 import Features from './components/features/Features';
 
 export default function Home() {
+  
+
   return (
     <main>
       <div
@@ -16,7 +18,7 @@ export default function Home() {
               <div className="flex gap-3">
                 <Image
                   className='rounded-t-full'
-                  src="/assests/img/home/home2.jpg"
+                  src="/assests/img/home/home2.webp"
                   alt="plant 1"
                   width={100}
                   height={150}
@@ -31,7 +33,7 @@ export default function Home() {
               <Image
                 className='rounded-t-full'
                 objectFit='cover'
-                src="/assests/img/home/home1.jpg"
+                src="/assests/img/home/home1.webp"
                 alt="plant 2"
                 width={200}
                 height={300}
