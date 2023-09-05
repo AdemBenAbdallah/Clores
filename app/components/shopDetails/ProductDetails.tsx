@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { BsPinterest } from 'react-icons/bs'
 import { AiFillTwitterCircle, AiFillInstagram } from 'react-icons/ai'
 import { FaFacebook } from 'react-icons/fa'
@@ -10,12 +10,16 @@ import { FaFacebook } from 'react-icons/fa'
 const ProductDetails = () => {
     const [mainImage, setMainImage] = useState("/assests/img/shop/shop1.jpg");
     const [selectedImage, setSelectedImage] = useState("/assests/img/shop/shop1.jpg");
+    const inputRef = useRef<HTMLInputElement>(null)
 
     const handleImageClick = (newImageSrc: string) => {
         setMainImage(newImageSrc);
         setSelectedImage(newImageSrc);
     };
 
+    const handleClick = () => {
+        console.log(inputRef.current?.value)
+    }
     return (
         <div className='flex gap-3 md:gap-12 flex-col md:flex-row justify-center text-seconday'>
             <div>
@@ -89,8 +93,11 @@ const ProductDetails = () => {
                     <p className='mt-2'>Lorem ipsum dolor sit.</p>
                 </div>
                 <div className="flex">
-                    <input className='p-2 bg-white w-16 outline-none' type='number' min='0' />
-                    <button className='py-2 px-12 bg-primary text-white'>Add to Cart</button>
+                    <input ref={inputRef} className='p-2 bg-white w-16 outline-none' type='number' min='0' />
+                    <button
+                        onClick={handleClick}
+                        className='py-2 px-12 bg-primary text-white'
+                    >Add to Cart</button>
                 </div>
                 <div className="flex flex-col gap-2">
                     <p className='text-[14px] text-primary'>Social Media</p>

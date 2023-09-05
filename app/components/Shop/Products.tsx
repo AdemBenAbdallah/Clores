@@ -1,42 +1,13 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import { BsGridFill } from 'react-icons/bs'
 import { BsListColumnsReverse } from 'react-icons/bs'
 import Product from './Product'
 import useModal from '@/app/hooks/useModel'
+import { products } from '@/app/constant'
 
 
-const products = [
-    {
-        imgSrc: "/assests/img/shop/shop1.jpg",
-        title: "Product 1",
-        nbStar: 4,
-        rate: 4.5,
-        price: 29.99,
-    },
-    {
-        imgSrc: "/assests/img/shop/shop2.jpg",
-        title: "Product 2",
-        nbStar: 5,
-        rate: 4.8,
-        price: 39.99,
-    },
-    {
-        imgSrc: "/assests/img/shop/shop3.jpg",
-        title: "Product 3",
-        nbStar: 3,
-        rate: 3.2,
-        price: 19.99,
-    },
-    {
-        imgSrc: "/assests/img/shop/shop4.jpg",
-        title: "Product 3",
-        nbStar: 3,
-        rate: 3.2,
-        price: 19.99,
-    },
-];
 
 
 const Products = () => {

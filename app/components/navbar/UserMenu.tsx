@@ -1,11 +1,16 @@
 'use client'
 
 import useNavBarSm from "@/app/hooks/useNavbarSm";
+import { User } from "@prisma/client";
 import { motion, AnimatePresence } from "framer-motion";
+import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation"
 import { useEffect, useRef } from "react";
 
-const UserMenu = () => {
+type UserMenuProps = {
+    currentUser: User | null
+}
+const UserMenu = ({ currentUser }: UserMenuProps) => {
     const router = useRouter()
     const { isOpen, onClose } = useNavBarSm()
     const menuRef = useRef<HTMLDivElement | null>(null)
@@ -60,6 +65,11 @@ const UserMenu = () => {
                             <p className="cursor-pointer" onClick={() => navigate('shop')}>Shop</p>
                             <p className="cursor-pointer" onClick={() => navigate('blog')}>Blog</p>
                             <p className="cursor-pointer">Contact</p>
+                            {!currentUser ? (
+                                <p className="cursor-pointer" onClick={() => navigate('singin')}>Sign In/ Sign Up</p>
+                            ) : (
+                                <p className="cursor-pointer" onClick={() => signOut()}>logout</p>
+                            )}
                         </div>
                     </motion.div>
                 )}

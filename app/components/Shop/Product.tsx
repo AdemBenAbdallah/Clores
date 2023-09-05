@@ -43,9 +43,12 @@ const Product: React.FC<ProductProps> = ({ imgSrc, title, nbStar, rate, price })
                     <p className='text-light max-sm:hidden'>({rate})</p>
                 </div>
                 <div className="flex justify-between">
-                    <p className='text-[16px]'>$ {price}</p>
-                    <button className='hidden sm:block bg-black px-3 py-1 text-white text-[12px] rounded-full'>Add to cart</button>
-                    <button className='bloack sm:hidden bg-black px-3 py-1 text-white text-[12px] rounded-full'>Add</button>
+                    <p  className='text-[16px]'>$ {price}</p>
+                    <button
+                        className='bg-black px-3 py-1 text-white text-[12px] rounded-full'
+                    >
+                        Add <span className='bloack sm:hidden'>to cart</span>
+                    </button>
                 </div>
             </div>
         </div>

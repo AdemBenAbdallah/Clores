@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 
 import { signIn } from 'next-auth/react';
 import { FieldValues, useForm, SubmitHandler } from "react-hook-form";
@@ -14,6 +14,7 @@ import Link from 'next/link';
 
 const Page = () => {
     const router = useRouter()
+    const [isLoading, setIsLoading] = useState(false)
     const {
         register,
         handleSubmit,
@@ -29,15 +30,19 @@ const Page = () => {
 
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         const { email, password } = data
+        setIsLoading(true)
+
         signIn('credentials', {
             ...{ email, password },
             redirect: false,
         })
-            .then((callback) => {
-                if (callback?.ok) {
-                    router.refresh();
-                }
-            });
+        .then((callback) => {
+            if (callback?.ok) {
+                router.refresh();
+            }
+        })
+        .finally(() => setIsLoading(false))
+        
         router.push('/')
     }
 
