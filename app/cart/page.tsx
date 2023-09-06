@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image';
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { CartItem } from '../components/shopDetails/ProductDetails';
@@ -9,7 +9,10 @@ import useCartStore from '../hooks/useCartStore';
 
 const Page = () => {
     const router = useRouter()
-    const existingCartItems: CartItem[] = JSON.parse(localStorage.getItem('cart') || '[]');
+    const existingCartItems: CartItem[] = typeof localStorage !== 'undefined' ?
+        JSON.parse(localStorage.getItem('cart') || '[]') :
+        [];
+
     const { updateProductCount } = useCartStore()
 
     const [cartItems, setCartItems] = useState(existingCartItems);
