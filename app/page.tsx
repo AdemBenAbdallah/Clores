@@ -1,9 +1,12 @@
+'use client'
+
 import Image from 'next/image';
 import Info from './components/Info'
 import Features from './components/features/Features';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
-  
+  const router = useRouter()
 
   return (
     <main>
@@ -25,7 +28,9 @@ export default function Home() {
                 />
                 <div className="space-y-2">
                   <p className='w-44 text-light'>The best place to explore, cultivate, and nurture your green sanctuary.</p>
-                  <button className='bg-white text-black px-3 py-2'>Shop Plants</button>
+                  <button
+                    onClick={() => router.push('/shop')}
+                    className='bg-white text-black px-3 py-2'>Shop Plants</button>
                 </div>
               </div>
             </div>

@@ -5,12 +5,38 @@ import React, { useRef, useState } from 'react'
 import { BsPinterest } from 'react-icons/bs'
 import { AiFillTwitterCircle, AiFillInstagram } from 'react-icons/ai'
 import { FaFacebook } from 'react-icons/fa'
+import Accordion from '../Accordion'
+import { products } from '@/app/constant'
+import useCartStore from '@/app/hooks/useCartStore'
 
+export interface Product {
+    id: string;
+    title: string;
+    rate: number;
+    numOfRatings: number;
+    scientificName: string;
+    commonNames: string[];
+    description: string;
+    mainImg: string;
+    otherViews: string[];
+    price: number;
+}
 
-const ProductDetails = () => {
-    const [mainImage, setMainImage] = useState("/assests/img/shop/shop1.jpg");
-    const [selectedImage, setSelectedImage] = useState("/assests/img/shop/shop1.jpg");
+export interface CartItem extends Product {
+    quantity: number;
+}
+
+type ProductDetailsProps = {
+    productId?: string
+}
+
+const ProductDetails = ({ productId }: ProductDetailsProps) => {
     const inputRef = useRef<HTMLInputElement>(null)
+    const product = products.find(p => p.id.toString() === productId)
+    const [mainImage, setMainImage] = useState(product?.mainImg ?? '');
+    const [selectedImage, setSelectedImage] = useState(product?.mainImg);
+    const { updateProductCount } = useCartStore()
+
 
     const handleImageClick = (newImageSrc: string) => {
         setMainImage(newImageSrc);
@@ -18,7 +44,27 @@ const ProductDetails = () => {
     };
 
     const handleClick = () => {
-        console.log(inputRef.current?.value)
+        const existingCartItems: CartItem[] = JSON.parse(localStorage.getItem('cart') || '[]')
+        const existingCartItem = existingCartItems.find(item => item.id === product?.id);
+        const inputValue = inputRef.current?.value
+
+        if (product && inputValue) {
+            const existingCartItem = existingCartItems.find((item) => item.id === product.id);
+
+            if (existingCartItem) {
+                existingCartItem.quantity += parseInt(inputValue, 10);
+            } else {
+                const cartItem: CartItem = {
+                    ...product,
+                    quantity: parseInt(inputValue, 10),
+                };
+                existingCartItems.push(cartItem);
+            }
+        }
+
+        localStorage.setItem('cart', JSON.stringify(existingCartItems))
+        updateProductCount()
+        alert('Product added to cart!')
     }
     return (
         <div className='flex gap-3 md:gap-12 flex-col md:flex-row justify-center text-seconday'>
@@ -33,40 +79,27 @@ const ProductDetails = () => {
                         height={300}
                     />
                     <div className="w-full flex items-start gap-4">
-                        <Image
-                            src="/assests/img/shop/shop2.jpg"
-                            alt="product"
-                            width={50}
-                            height={50}
-                            onClick={() => handleImageClick("/assests/img/shop/shop2.jpg")}
-                            className={selectedImage === "/assests/img/shop/shop2.jpg" ? "border-2 border-primary" : ""}
-                        />
-                        <Image
-                            src="/assests/img/shop/shop3.jpg"
-                            alt="product"
-                            width={50}
-                            height={50}
-                            onClick={() => handleImageClick("/assests/img/shop/shop3.jpg")}
-                            className={selectedImage === "/assests/img/shop/shop3.jpg" ? "border-2 border-primary" : ""}
-                        />
-                        <Image
-                            src="/assests/img/shop/shop4.jpg"
-                            alt="product"
-                            width={50}
-                            height={50}
-                            onClick={() => handleImageClick("/assests/img/shop/shop4.jpg")}
-                            className={selectedImage === "/assests/img/shop/shop4.jpg" ? "border-2 border-primary" : ""}
-                        />
+                        {product?.otherViews.map((img, index) => (
+                            <Image
+                                key={index}
+                                src={img}
+                                alt="product"
+                                width={50}
+                                height={50}
+                                onClick={() => handleImageClick(img)}
+                                className={selectedImage === img ? "border-2 border-primary" : ""}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>
 
-            <div className="mt-12 flex flex-col gap-3 md:gap-8">
+            <div className="mt-12 flex flex-col gap-3 md:gap-[1.5rem]">
                 <div className="flex flex-col gap-2">
                     <h1 className='text-xl'>Spider Plant Hower</h1>
                     <div className="flex gap-2 items-center">
                         <div className="flex gap-2">
-                            {Array(5).fill(null).map((_, index) => (
+                            {Array(Math.round(product?.rate ?? 1)).fill(null).map((_, index) => (
                                 <Image
                                     key={index}
                                     layout='intrinsic'
@@ -78,22 +111,29 @@ const ProductDetails = () => {
                                 />
                             ))}
                         </div>
-                        <p className='text-light'>(24)</p>
+                        <p className='text-light'>({product?.numOfRatings})</p>
                     </div>
                     <p className='text-xl'>$ 43</p>
                 </div>
-                <p>Lorem ipsum dolor sit.</p>
-                <p>Lorem ipsum dolor sit.</p>
+                <div className="flex flex-col gap-2">
+                    <Accordion title='Common name' >
+                        {product?.commonNames.map((name) => (
+                            <p key={name} className='mt-1 text-[12px] text-light'>{name}</p>
+                        ))}
+                    </Accordion>
+                    <Accordion title='Scientific name' >
+                        <p className='mt-1 text-[12px] text-light'>{product?.scientificName}</p>
+                    </Accordion>
+                </div>
                 <div className="flex flex-col gap-2">
                     <h3>Description</h3>
-                    <p className='text-light mb-1 w-[20rem] md:w-[29rem]'>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                        Ex incidunt exercitationem autem possimus debitis alias
-                        quia maxime facere vero? Officiis magnam veritatis excepturi!
+                    <p className='text-light mb-1 w-[20rem] md:w-[29rem]'>
+                        {product?.description}
                     </p>
                     <p className='mt-2'>Lorem ipsum dolor sit.</p>
                 </div>
                 <div className="flex">
-                    <input ref={inputRef} className='p-2 bg-white w-16 outline-none' type='number' min='0' />
+                    <input ref={inputRef} className='p-2 bg-white w-16 outline-none' type='number' min='1' defaultValue="1" />
                     <button
                         onClick={handleClick}
                         className='py-2 px-12 bg-primary text-white'

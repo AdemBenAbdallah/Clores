@@ -31,12 +31,13 @@ const Products = () => {
 
             </div>
             <div className="py-1 px-5 flex flex-wrap justify-center gap-3">
-                {products.map(({ imgSrc, title, nbStar, rate, price }, index) => (
+                {products.map(({ id, mainImg, title, numOfRatings, rate, price }) => (
                     <Product
-                        key={index}
-                        imgSrc={imgSrc}
+                        key={id}
+                        id={id}
+                        mainImg={mainImg}
                         title={title}
-                        nbStar={nbStar}
+                        numOfRatings={numOfRatings}
                         rate={rate}
                         price={price}
                     />

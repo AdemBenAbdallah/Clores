@@ -5,23 +5,24 @@ import { useRouter } from 'next/navigation';
 import React from 'react'
 
 interface ProductProps {
-    imgSrc: string;
+    id: string;
+    mainImg: string;
     title: string;
-    nbStar: number;
+    numOfRatings: number;
     rate: number;
     price: number;
 }
-const Product: React.FC<ProductProps> = ({ imgSrc, title, nbStar, rate, price }) => {
+const Product: React.FC<ProductProps> = ({ id, mainImg, title, numOfRatings, rate, price }) => {
     const router = useRouter()
 
     return (
         <div
-            onClick={() => router.push('/shop/345')}
+            onClick={() => router.push(`/shop/${id}`)}
             className='bg-white cursor-pointer max-sm:w-[10rem]'
         >
             <Image
                 className='p-2'
-                src={imgSrc}
+                src={mainImg}
                 alt="product"
                 width={255}
                 height={200}
@@ -30,7 +31,7 @@ const Product: React.FC<ProductProps> = ({ imgSrc, title, nbStar, rate, price })
                 <p>{title}</p>
                 <div className="flex gap-2 items-center">
                     <div className="flex gap-2">
-                        {Array(nbStar).fill(null).map((_, index) => (
+                        {Array(Math.round(rate)).fill(null).map((_, index) => (
                             <Image
                                 key={index}
                                 src="/assests/icons/star.svg"
@@ -40,14 +41,14 @@ const Product: React.FC<ProductProps> = ({ imgSrc, title, nbStar, rate, price })
                             />
                         ))}
                     </div>
-                    <p className='text-light max-sm:hidden'>({rate})</p>
+                    <p className='text-light max-sm:hidden'>({numOfRatings})</p>
                 </div>
                 <div className="flex justify-between">
-                    <p  className='text-[16px]'>$ {price}</p>
+                    <p className='text-[16px]'>$ {price}</p>
                     <button
-                        className='bg-black px-3 py-1 text-white text-[12px] rounded-full'
+                        className='bg-black px-3 py-1 text-white text-[12px] rounded-full flex gap-1'
                     >
-                        Add <span className='bloack sm:hidden'>to cart</span>
+                        Add <span className='hidden sm:block'>to cart</span>
                     </button>
                 </div>
             </div>
