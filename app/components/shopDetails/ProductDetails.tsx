@@ -45,7 +45,6 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
 
     const handleClick = () => {
         const existingCartItems: CartItem[] = JSON.parse(localStorage.getItem('cart') || '[]')
-        const existingCartItem = existingCartItems.find(item => item.id === product?.id);
         const inputValue = inputRef.current?.value
 
         if (product && inputValue) {
