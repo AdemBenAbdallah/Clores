@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Info from './components/Info'
 import Features from './components/features/Features';
 import { useRouter } from 'next/navigation';
+import { home1UrlBlur, home2UrlBlur } from './constant';
 
 export default function Home() {
   const router = useRouter()
@@ -13,6 +14,13 @@ export default function Home() {
       <div
         className='bg-my_bg_image bg-cover bg-center h-screen flex items-center justify-center'
       >
+        <Image
+          src="/bg/home.webp"
+          priority={true}
+          alt='bg'
+          fill
+          className='hidden'
+        />
         <div className="w-full h-screen bg-black bg-opacity-50 absolute top-0"></div>
         <div className="relative pt-28 text-white h-full flex items-center justify-center z-9">
           <div className='flex gap-11 ml-3 md:ml-0'>
@@ -23,6 +31,9 @@ export default function Home() {
                   className='rounded-t-full'
                   src="/assests/img/home/home2.webp"
                   alt="plant 1"
+                  priority={true}
+                  blurDataURL={home2UrlBlur}
+                  placeholder='blur'
                   width={100}
                   height={150}
                 />
@@ -37,6 +48,9 @@ export default function Home() {
             <div className="hidden lg:flex gap-3">
               <Image
                 className='rounded-t-full'
+                priority={true}
+                blurDataURL={home1UrlBlur}
+                placeholder='blur'
                 objectFit='cover'
                 src="/assests/img/home/home1.webp"
                 alt="plant 2"

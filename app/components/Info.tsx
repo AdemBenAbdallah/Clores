@@ -9,6 +9,7 @@ const Info = () => {
                     alt="information"
                     width={350}
                     height={350}
+                    priority={true}
                 />
             </div>
             <div className="space-y-2 flex-1">
