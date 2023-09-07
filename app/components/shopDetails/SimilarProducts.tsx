@@ -11,6 +11,7 @@ const SimilarProducts = () => {
           <Product
             key={id}
             id={id}
+            row={true}
             mainImg={mainImg}
             title={title}
             numOfRatings={numOfRatings}
