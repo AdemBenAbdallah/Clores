@@ -6,22 +6,23 @@ import React from 'react'
 
 interface ProductProps {
     id: string;
+    row: boolean;
     mainImg: string;
     title: string;
     numOfRatings: number;
     rate: number;
     price: number;
 }
-const Product: React.FC<ProductProps> = ({ id, mainImg, title, numOfRatings, rate, price }) => {
+const Product: React.FC<ProductProps> = ({ id, row, mainImg, title, numOfRatings, rate, price }) => {
     const router = useRouter()
 
     return (
         <div
             onClick={() => router.push(`/shop/${id}`)}
-            className='bg-white cursor-pointer max-sm:w-[10rem]'
+            className={`bg-white cursor-pointer  ${!row ? "w-full flex" : "w-[10rem] sm:w-[15rem]"}`}
         >
             <Image
-                className='p-2'
+                className={`p-2 ${!row && "max-sm:w-[124px]"}`}
                 src={mainImg}
                 alt="product"
                 width={255}
@@ -43,7 +44,7 @@ const Product: React.FC<ProductProps> = ({ id, mainImg, title, numOfRatings, rat
                     </div>
                     <p className='text-light max-sm:hidden'>({numOfRatings})</p>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex sm:justify-between max-sm:gap-2">
                     <p className='text-[16px]'>$ {price}</p>
                     <button
                         className='bg-black px-3 py-1 text-white text-[12px] rounded-full flex gap-1'

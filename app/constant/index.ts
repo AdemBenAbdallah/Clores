@@ -8,9 +8,10 @@ export const products = [
     commonNames: ["English Lavender", "True Lavender"],
     description:
       "Lavender is a popular aromatic herb known for its fragrant purple flowers and soothing properties.",
-    mainImg: "/assests/img/shop/shop1.jpg",
+    mainImg:
+      "https://nurserylive.com/cdn/shop/products/nurserylive-combo-packs-plants-5-best-fragrant-plants-16968509653132_600x600.jpg?v=1634209158",
     otherViews: [
-      "/assests/img/shop/shop1.jpg",
+      "https://nurserylive.com/cdn/shop/products/nurserylive-combo-packs-plants-5-best-fragrant-plants-16968509653132_600x600.jpg?v=1634209158",
       "/assests/img/shop/shop2.jpg",
       "/assests/img/shop/shop3.jpg",
     ],
@@ -25,11 +26,11 @@ export const products = [
     commonNames: ["Dew of the Sea", "Rosemary Bush"],
     description:
       "Rosemary is a woody herb with needle-like leaves, often used in cooking and for its pleasant scent.",
-    mainImg: "/assests/img/shop/shop2.jpg",
+    mainImg:
+      "https://nurserylive.com/cdn/shop/products/nurserylive-g-jasminum-sambac-mogra-arabian-jasmine_600x600.jpg?v=1634222612",
     otherViews: [
-      "/assests/img/shop/shop1.jpg",
-      "/assests/img/shop/shop2.jpg",
-      "/assests/img/shop/shop3.jpg",
+      "https://nurserylive.com/cdn/shop/products/nurserylive-g-jasminum-sambac-mogra-arabian-jasmine_600x600.jpg?v=1634222612",
+      "https://nurserylive.com/cdn/shop/products/nurserylive-g-jasminum-sambac-mogra-arabian-jasmine-5_540x720.jpg?v=1662365418",
     ],
     price: 9.99,
   },
@@ -42,11 +43,12 @@ export const products = [
     commonNames: ["Common Sunflower"],
     description:
       "The sunflower is known for its large, yellow flowers and edible seeds.",
-    mainImg: "/assests/img/shop/shop3.jpg",
+    mainImg:
+      "https://nurserylive.com/cdn/shop/products/nurserylive-peace-lily-spathiphyllum-plant-in-4-inch-10-cm-black-pot-230563_600x600.jpg?v=1685021926",
     otherViews: [
+      "https://nurserylive.com/cdn/shop/products/nurserylive-peace-lily-spathiphyllum-plant-in-4-inch-10-cm-black-pot-230563_600x600.jpg?v=1685021926",
       "/assests/img/shop/shop1.jpg",
       "/assests/img/shop/shop2.jpg",
-      "/assests/img/shop/shop3.jpg",
     ],
     price: 6.99,
   },
@@ -59,11 +61,10 @@ export const products = [
     commonNames: ["Garden Tulip"],
     description:
       "Tulips are colorful spring-blooming flowers that come in various shapes and sizes.",
-    mainImg: "/assests/img/shop/shop1.jpg",
+    mainImg:
+      "https://nurserylive.com/cdn/shop/products/nurserylive-jade-plant-elephant-bush-green-succulent-plant-in-4-inch-10-cm-black-pot-434709_600x600.jpg?v=1684935612",
     otherViews: [
-      "/assests/img/shop/shop4.jpg",
-      "/assests/img/shop/shop5.jpg",
-      "/assests/img/shop/shop6.jpg",
+      "https://nurserylive.com/cdn/shop/products/nurserylive-jade-plant-elephant-bush-green-succulent-plant-in-4-inch-10-cm-black-pot-434709_600x600.jpg?v=1684935612",
     ],
     price: 5.49,
   },
@@ -76,11 +77,10 @@ export const products = [
     commonNames: ["Medicinal Aloe", "Burn Plant"],
     description:
       "Aloe Vera is a succulent plant known for its healing properties, often used for skin conditions.",
-    mainImg: "/assests/img/shop/shop2.jpg",
+    mainImg:
+      "https://nurserylive.com/cdn/shop/products/nurserylive-syngonium-pink-plant-in-4-inch-10-cm-black-pot-188185_600x600.jpg?v=1685023242",
     otherViews: [
-      "/assests/img/shop/shop4.jpg",
-      "/assests/img/shop/shop5.jpg",
-      "/assests/img/shop/shop6.jpg",
+      "https://nurserylive.com/cdn/shop/products/nurserylive-syngonium-pink-plant-5-410852_540x720.jpg?v=1679751750",
     ],
     price: 7.99,
   },
@@ -205,4 +205,6 @@ export const products = [
   },
 ];
 
+export const blurImgUrl =
+  "data:image/webp;base64,UklGRtwCAABXRUJQVlA4WAoAAAAgAAAAgQAAgQAASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZWUDgg7gAAAHALAJ0BKoIAggA/OZC+WS8ppyOqVFqZ4CcJaW7ew998CpwBpbReRPBD3ZIvGXaQ/TV4RnzEH1dNOR/U2B1JRxuHkO/H6H63PSH6ESN9DbiH1/tn/sVWgx0lkHKpvtk9byYXpEAA/u8Qx5VF8duLv0dxVrxlVM3bAU75UfJGNyP0dx8fgabMEucbg8FMc6/jbns5I94WbhILRSxbIx+EXRkQEkDd4PV1QTgxopIGtvs5gUKQwp1YfW7/Ca809C3gBto85yeewqchG9Qay8sKPWhrCL06IN43Eh+4rqpCnQefRQ2rIpiiCTs6YK0AAAA=";
 export const comments = [{}];

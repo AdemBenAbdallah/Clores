@@ -6,7 +6,7 @@ import { BsPinterest } from 'react-icons/bs'
 import { AiFillTwitterCircle, AiFillInstagram } from 'react-icons/ai'
 import { FaFacebook } from 'react-icons/fa'
 import Accordion from '../Accordion'
-import { products } from '@/app/constant'
+import { blurImgUrl, products } from '@/app/constant'
 import useCartStore from '@/app/hooks/useCartStore'
 
 export interface Product {
@@ -76,12 +76,15 @@ const ProductDetails = ({ productId }: ProductDetailsProps) => {
                         alt="product"
                         width={500}
                         height={300}
+                        blurDataURL={blurImgUrl}
+                        placeholder='blur'
                     />
                     <div className="w-full flex items-start gap-4">
                         {product?.otherViews.map((img, index) => (
                             <Image
                                 key={index}
                                 src={img}
+                                loading='lazy'
                                 alt="product"
                                 width={50}
                                 height={50}
