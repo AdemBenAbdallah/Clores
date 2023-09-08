@@ -10,7 +10,7 @@ const Logo = () => {
         <Image
             onClick={() => router.push('/')}
             className="cursor-pointer"
-            src="/assests/icons/logo.wepb"
+            src="/assests/icons/logo.webp"
             height="100"
             width="100"
             alt="Logo"
