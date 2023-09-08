@@ -27,7 +27,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <Navbar currentUser={currentUser} />
-        <div className='min-h-screen'>
+        <div className='min-h-screen bg-gray_white'>
           {children}
         </div>
         <Footer />

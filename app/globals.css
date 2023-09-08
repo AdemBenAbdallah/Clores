@@ -12,6 +12,9 @@
   .button {
     @apply bg-white text-black px-3 py-2;
   }
+  .input {
+    @apply mt-2 w-full px-2 py-1 bg-white rounded-none text-black;
+  }
 }
 
 @layer utilities {

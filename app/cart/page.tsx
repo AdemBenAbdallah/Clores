@@ -43,6 +43,22 @@ const Page = () => {
         router.push('/')
     }
 
+    if (cartItems.length === 0) {
+        return (
+            <div className="flex-center h-screen">
+                <div className='w-[23rem] bg-white'>
+                    <div className="w-full md:w-[22rem] p-4 text-black ">
+                        <h3 className='text-xl font-thin'>Add Products!</h3>
+                        <p>Go to shop page</p>
+                    </div>
+                    <button
+                        onClick={() => router.push('/shop')}
+                        className='button py-2 bg-black text-white w-full mt-3'
+                    >shop</button>
+                </div>
+            </div>
+        )
+    }
     return (
         <div className="flex-center bg-gray_white">
             <div className='px-6 md:px-20 py-36 flex flex-col gap-12 justify-center text-seconday'>

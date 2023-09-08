@@ -49,7 +49,7 @@ const UserMenu = ({ currentUser }: UserMenuProps) => {
                 <p className="cursor-pointer" onClick={() => router.push('/aboutus')}>About Us</p>
                 <p className="cursor-pointer" onClick={() => router.push('/shop')}>Shop</p>
                 <p className="cursor-pointer" onClick={() => router.push('/blog')}>Blog</p>
-                <p className="cursor-pointer">Contact</p>
+                <p className="cursor-pointer" onClick={() => router.push('/contact')}>Contact</p>
             </div>
             {<AnimatePresence>
                 {isOpen && (
@@ -64,7 +64,7 @@ const UserMenu = ({ currentUser }: UserMenuProps) => {
                             <p className="cursor-pointer" onClick={() => navigate('aboutus')}>About Us</p>
                             <p className="cursor-pointer" onClick={() => navigate('shop')}>Shop</p>
                             <p className="cursor-pointer" onClick={() => navigate('blog')}>Blog</p>
-                            <p className="cursor-pointer">Contact</p>
+                            <p className="cursor-pointer" onClick={() => navigate('contact')}>Contact</p>
                             {!currentUser ? (
                                 <p className="cursor-pointer" onClick={() => navigate('singin')}>Sign In/ Sign Up</p>
                             ) : (
