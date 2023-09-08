@@ -39,11 +39,14 @@ const Page = () => {
             .then((callback) => {
                 if (callback?.ok) {
                     router.refresh();
+                    router.push('/')
+                }
+                if (callback?.error) {
+                    alert(callback.error);
                 }
             })
             .finally(() => setIsLoading(false))
 
-        router.push('/')
     }
 
     return (
@@ -117,7 +120,7 @@ const Page = () => {
                         </div>
 
                         <button type="submit" className='w-full button py2 bg-black text-white'>Sign In</button>
-                        <Link href="/signup">
+                        <Link href="/singup">
                             <p className='text-light text-end'>Sign Up</p>
                         </Link>
                     </div>
