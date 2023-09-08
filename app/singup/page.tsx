@@ -84,6 +84,7 @@ const Page = () => {
                         <h3 className='max-md:text-[15px]'>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
                         <input
                             {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+                            disabled={isLoading}
                             className='mt-2 w-full px-2 py-3 bg-white text-black outline-none'
                             type='text'
                             placeholder='Enter your email'
@@ -91,6 +92,7 @@ const Page = () => {
                         {errors.email && <span className='text-[12px] text-red-400'>Email is required and must be valid.</span>}
                         <input
                             {...register("password", { required: true, minLength: 8 })}
+                            disabled={isLoading}
                             className='mt-2 w-full px-2 py-3 bg-white text-black outline-none'
                             type='password'
                             placeholder='Enter your Password'
@@ -101,6 +103,7 @@ const Page = () => {
                                 required: true,
                                 validate: (value) => value === watch('password'),
                             })}
+                            disabled={isLoading}
                             className='mt-2 w-full px-2 py-3 bg-white text-black outline-none'
                             type='password'
                             placeholder='Enter your confirmPassword'

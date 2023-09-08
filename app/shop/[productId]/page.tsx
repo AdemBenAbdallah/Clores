@@ -12,7 +12,6 @@ interface IParams {
 
 const page = ({ params }: { params: IParams }) => {
 
-    console.log(params)
     return (
         <div className='pt-20 bg-gray_white'>
             <Container>

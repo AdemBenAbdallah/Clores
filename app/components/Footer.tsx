@@ -3,7 +3,7 @@ import Logo from './navbar/Logo';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-black text-white p-8">
+        <footer className="bg-black text-white p-8 mt-auto">
             <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-11">
                 {/* Column 1 */}
                 <div className="col-span-1">

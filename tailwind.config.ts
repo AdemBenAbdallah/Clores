@@ -19,7 +19,7 @@ const config: Config = {
         shop3: "url('../public/bg/shop3.jpg')",
         shop4: "url('../public/bg/shop4.jpg')",
         perfect: "url('../public/bg/perfectPlant.avif')",
-        footer: "url('../public/bg/footer2.jpeg')",
+        footer: "url('../public/bg/footer.webp')",
       },
       colors: {
         light: "#b8b8b8",

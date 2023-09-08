@@ -5,7 +5,7 @@ const Info = () => {
         <section className="w-full flex items-center gap-24 p-5 md:p-20 bg-[#f2f2f2]">
             <div className="hidden md:flex-1 md:flex-center">
                 <Image
-                    src="/assests/img/home/C.png"
+                    src="/assests/img/home/C.webp"
                     alt="information"
                     width={350}
                     height={350}

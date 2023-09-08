@@ -1,8 +1,13 @@
+import { useRouter } from "next/navigation"
 import Container from "../Container"
 import Callery from "./Callery"
 import FeaturesProducts from "./FeaturesProducts"
 
 const Features = () => {
+    const router = useRouter()
+
+    const handleClick = () => { router.push('/shop') }
+
     return (
         <section className="bg-primary w-full pb-20">
             <Callery />
@@ -11,7 +16,10 @@ const Features = () => {
                 <div className="w-full h-screen bg-black bg-opacity-50 absolute top-0"></div>
                 <div className="flex-center flex-col gap-5 relative z-8">
                     <h1 className="text-white text-3xl">Find Your Perfefct Plant</h1>
-                    <button className="button w-fit">Get Started</button>
+                    <button
+                        onClick={handleClick}
+                        className="button w-fit"
+                    >Get Started</button>
                 </div>
             </div>
             <Container>
@@ -20,7 +28,10 @@ const Features = () => {
                     <div className="w-2/4 flex items-start flex-col gap-5 relative z-8">
                         <h1 className="text-white text-3xl">Find Your Perfefct Plant</h1>
                         <p className="text-white">A plant a positive information</p>
-                        <button className="button w-fit">Cam Goldes</button>
+                        <button 
+                            onClick={handleClick}
+                            className="button w-fit"
+                        >Cam Goldes</button>
                     </div>
                 </div>
             </Container>

@@ -22,7 +22,7 @@ export const PlantSection: React.FC<PlantSectionProps> = ({ imageClass, title })
 const FeaturesProducts = () => {
     return (
         <Container>
-            <div className="flex gap-11 py-20">
+            <div className="flex gap-11 py-20 carousel-item">
                 <div className="w-[25rem] flex flex-col justify-center gap-4">
                     <h3 className="text-black text-2xl sm:text-3xl">Featured Products</h3>
                     <p className="hidden sm:block text-[14px] w-full text-white">
@@ -37,7 +37,7 @@ const FeaturesProducts = () => {
                         <BsArrowRightShort />
                     </button>
                 </div>
-                <div className="flex gap-4 overflow-hidden">
+                <div className="carousel carousel-center flex gap-4">
                     <PlantSection imageClass="shop1" title="Shipping Info" />
                     <PlantSection imageClass="shop2" title="Shipping Info" />
                     <PlantSection imageClass="shop3" title="Shipping Info" />

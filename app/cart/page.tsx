@@ -6,12 +6,23 @@ import { useRouter } from 'next/navigation';
 
 import { CartItem } from '../components/shopDetails/ProductDetails';
 import useCartStore from '../hooks/useCartStore';
+import TextModal from '../components/Model';
 
 const Page = () => {
     const router = useRouter()
     const existingCartItems: CartItem[] = typeof localStorage !== 'undefined' ?
         JSON.parse(localStorage.getItem('cart') || '[]') :
         [];
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
     const { updateProductCount } = useCartStore()
 

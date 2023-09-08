@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import { aboutUrlBlur } from '../constant'
 
 const page = () => {
     return (
@@ -11,6 +12,8 @@ const page = () => {
                         className='object-contain mb-4'
                         src="/assests/img/home/aboutus.webp"
                         alt='about us'
+                        blurDataURL={aboutUrlBlur}
+                        placeholder='blur'
                         width={500}
                         height={200}
                     />
