@@ -39,7 +39,9 @@ const Page = () => {
             .then(() => {
                 router.push('/singin')
             })
-            .catch((err: any) => console.log(err))
+            .catch(() =>
+                alert("Your email is already exist!")
+            )
             .finally(() => setIsLoading(false))
     }
 
@@ -109,6 +111,22 @@ const Page = () => {
                             placeholder='Enter your confirmPassword'
                         />
                         {errors.confirmPassword && <span className='text-[12px] text-red-400'>Passwords must match.</span>}
+                        <div className="flex flex-col items-start gap-1 my-2">
+                            <div className="flex items-center gap-2">
+                                <input
+                                    {...register("checkbox", { required: true })}
+                                    type="checkbox"
+                                    id="remember"
+                                    className="checkbox checkbox-xs border border-primary"
+                                />
+                                <label htmlFor="remember" className="text-black">
+                                    I agree to the Terms and Conditions
+                                </label>
+                            </div>
+                            {errors.checkbox && (
+                                <p className="text-[12px] text-red-400">Please agree to the Terms and Conditions</p>
+                            )}
+                        </div>
 
                         <button type="submit" className='w-full button py2 bg-black text-white'>Sign Up</button>
                         <Link href="/singin">

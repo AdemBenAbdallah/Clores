@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { BsGridFill } from 'react-icons/bs'
 import { RiLayout2Fill } from 'react-icons/ri'
@@ -8,14 +8,56 @@ import { IoFilterSharp } from 'react-icons/io5'
 
 import Product from './Product'
 import useModal from '@/app/hooks/useModel'
-import { products } from '@/app/constant'
+import { checkBoxOption, products } from '@/app/constant'
 
 
+interface ProductsProps {
+    checkboxes: checkBoxOption[]
+}
 
-
-const Products = () => {
+const Products = ({ checkboxes }: ProductsProps) => {
     const { onOpen } = useModal()
     const [row, setRow] = useState(true)
+    const [sortBy, setSortBy] = useState('manual')
+    const [filteredProducts, setFilteredProducts] = useState(products)
+
+
+    const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedSortType = e.target.value;
+        setSortBy(selectedSortType)
+    }
+
+    useEffect(() => {
+        let filtered = [...products]
+
+        checkboxes.forEach((category) => {
+            category.options.forEach((option) => {
+                if (option.checked) {
+                    filtered = filtered.filter((product) =>
+                        product.type.includes(option.label.toLowerCase())
+                    )
+                }
+            })
+        })
+
+        if (sortBy === 'best-selling') {
+            filtered.sort((a, b) => b.numOfRatings - a.numOfRatings)
+        } else if (sortBy === 'title-ascending') {
+            filtered.sort((a, b) => a.title.localeCompare(b.title))
+        } else if (sortBy === 'title-descending') {
+            filtered.sort((a, b) => b.title.localeCompare(a.title))
+        } else if (sortBy === 'price-ascending') {
+            filtered.sort((a, b) => a.price - b.price)
+        } else if (sortBy === 'price descending') {
+            filtered.sort((a, b) => b.price - a.price)
+        } else if (sortBy === 'created-ascending') {
+            filtered.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())
+        } else if (sortBy === 'created-descending') {
+            filtered.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+        }
+
+        setFilteredProducts(filtered)
+    }, [checkboxes, sortBy])
 
     return (
         <div className='flex-1'>
@@ -40,7 +82,11 @@ const Products = () => {
                         />
                     </div>
                 </div>
-                <select className="bg-white text-black w-40 select select-bordered max-w-xs" defaultValue="manual">
+                <select
+                    value={sortBy}
+                    onChange={handleSortChange}
+                    className="bg-white text-black w-40 select select-bordered max-w-xs"
+                >
                     <option value="manual">
                         Featured
                     </option>
@@ -76,7 +122,7 @@ const Products = () => {
 
             </div>
             <div className={`py-1 px-5 flex flex-wrap justify-center gap-3 ${!row && "flex-col"}`}>
-                {products.map(({ id, mainImg, title, numOfRatings, rate, price }) => (
+                {filteredProducts.map(({ id, mainImg, title, numOfRatings, rate, price }) => (
                     <Product
                         key={id}
                         id={id}

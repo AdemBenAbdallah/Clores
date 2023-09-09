@@ -1,57 +1,19 @@
 "use client"
 
+import { checkBoxOption } from '@/app/constant';
 import useModal from '@/app/hooks/useModel';
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 
 
-const Sidebar = () => {
+interface SidebarProps {
+    checkboxes: checkBoxOption[]
+    handleCheckboxChange: (id: string) => void;
+}
+
+const Sidebar = ({ checkboxes, handleCheckboxChange }: SidebarProps) => {
     const { isOpen, onClose } = useModal();
-    const [checkboxes, setCheckboxes] = useState([
-        {
-            category: 'Type',
-            options: [
-                { id: 'vegetalCheckbox', label: 'Vegetal', checked: false },
-                { id: 'caroteCheckbox', label: 'Carote', checked: false },
-                { id: 'loremCheckbox', label: 'Lorem', checked: false },
-            ],
-        },
-        {
-            category: 'Size',
-            options: [
-                { id: 'smallCheckbox', label: 'Small', checked: false },
-                { id: 'mediumCheckbox', label: 'Medium', checked: false },
-                { id: 'largeCheckbox', label: 'Large', checked: false },
-            ],
-        },
-        {
-            category: 'Price Range',
-            options: [
-                { id: 'lowPriceCheckbox', label: 'Low', checked: false },
-                { id: 'mediumPriceCheckbox', label: 'Medium', checked: false },
-                { id: 'highPriceCheckbox', label: 'High', checked: false },
-            ],
-        },
-        {
-            category: 'Availability',
-            options: [
-                { id: 'inStockCheckbox', label: 'In Stock', checked: false },
-                { id: 'outOfStockCheckbox', label: 'Out of Stock', checked: false },
-            ],
-        },
-    ]);
 
-
-    const handleCheckboxChange = useCallback((id: string) => {
-        setCheckboxes((prevCheckboxes) =>
-            prevCheckboxes.map((category) => ({
-                ...category,
-                options: category.options.map((checkbox) =>
-                    checkbox.id === id ? { ...checkbox, checked: !checkbox.checked } : checkbox
-                ),
-            }))
-        );
-    }, []);
 
     return (
         <>
