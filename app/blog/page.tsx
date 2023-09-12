@@ -21,7 +21,7 @@ const BlogPage = () => {
                             <p className='text-[16px] text-light'>{post.title}</p>
                             <h3 className='text-xl font-semibold w-30 mt-1 md:mt-4'>{post.title}</h3>
                             <p className='text-light'>{post.description}</p>
-                            <p className='w-fit font-semibold border-b-2 border-black mt-2 md:mt-12'>Read more</p>
+                            <p className='w-fit font-normal sm:font-semibold border-b-2 border-black mt-2 md:mt-12'>Read more</p>
                         </div>
                     </div>
                 ))}

@@ -12,7 +12,7 @@ type NavbarProps = {
 const Navbar = ({ currentUser }: NavbarProps) => {
 
     return (
-        <div className='fixed w-full bg-black text-white z-10 shadow-sm'>
+        <div className='max-h-[80px] fixed w-full bg-black text-white z-10 shadow-sm'>
             <div className="py-4">
                 <Container>
                     <div className="flex flex-row items-row justify-between gap-3 md:gap-0">

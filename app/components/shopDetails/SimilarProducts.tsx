@@ -6,7 +6,7 @@ const SimilarProducts = () => {
   return (
     <div className='flex flex-col gap-6 pb-20'>
       <h3 className='text-xl'>You may also like</h3>
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="grid grid-cols-2  md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5  gap-6">
         {products.slice(0, 5).map(({ id, mainImg, title, numOfRatings, rate, price }) => (
           <Product
             key={id}

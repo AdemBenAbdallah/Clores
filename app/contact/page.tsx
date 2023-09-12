@@ -17,10 +17,11 @@ const Page = () => {
         register,
         handleSubmit,
         formState: { errors },
+        reset
     } = useForm<FormData>();
 
     const onSubmit: SubmitHandler<FormData> = (data) => {
-        console.log(data);
+        reset()
     };
 
     return (
@@ -46,7 +47,7 @@ const Page = () => {
                             {...register('fullName', { required: true })}
                             placeholder="Enter your full name"
                         />
-                        {errors.fullName && <span className="error">Full name is required</span>}
+                        {errors.fullName && <span className='text-[12px] text-red-400'>Full name is required</span>}
 
                         <label htmlFor="email">Email</label>
                         <input
@@ -56,7 +57,7 @@ const Page = () => {
                             {...register('email', { required: true })}
                             placeholder="Enter your email"
                         />
-                        {errors.email && <span className="error">Email is required</span>}
+                        {errors.email && <span className='text-[12px] text-red-400'>Email is required</span>}
 
                         <label htmlFor="address">Address</label>
                         <input
@@ -116,9 +117,10 @@ const Page = () => {
                         <textarea
                             className='input'
                             id="message"
-                            {...register('message')}
+                            {...register('message', { required: true })}
                             placeholder="Enter your message"
                         />
+                        {errors.message && <span className='text-[12px] text-red-400'>Message is required</span>}
 
                         <button
                             className='button bg-black text-white mt-2 mb-5'

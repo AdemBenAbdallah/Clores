@@ -21,6 +21,7 @@ const Search = ({ currentUser }: NavbarProps) => {
     const router = useRouter()
     const { onOpen } = useNavBarSm()
     const { productCount } = useCartStore()
+    console.log(currentUser)
 
     const handleClick = () => {
         if (!currentUser) {
@@ -56,7 +57,7 @@ const Search = ({ currentUser }: NavbarProps) => {
                 ) : null}
                 <ShoppingCartIcon />
             </div>
-            <div className="hidden max-md:flex items-center gap-2">
+            <div className="hidden max-md:flex items-center gap-3">
                 <AiOutlineMenu
                     onClick={onOpen}
                     style={{ fontSize: '1.5em' }}

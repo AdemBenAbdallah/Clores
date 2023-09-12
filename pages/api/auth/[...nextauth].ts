@@ -1,12 +1,15 @@
-import bcrypt from "bcrypt";
 import NextAuth, { AuthOptions } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import TwitterProvider from "next-auth/providers/twitter";
 import FacebookProvider from "next-auth/providers/facebook";
+import CredentialsProvider from "next-auth/providers/credentials";
 
-import prisma from "@/lib/prismadb";
+import bcrypt from "bcrypt";
+
 import { PrismaAdapter } from "@auth/prisma-adapter";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),

@@ -3,17 +3,18 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { FieldValues, useForm, SubmitHandler } from "react-hook-form";
 
 import { FaFacebook } from 'react-icons/fa'
 import { BiLogoGoogle } from 'react-icons/bi'
 import { GrTwitter } from 'react-icons/gr'
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const Page = () => {
     const router = useRouter()
+    const { status } = useSession()
     const [isLoading, setIsLoading] = useState(false)
     const {
         register,
@@ -41,13 +42,16 @@ const Page = () => {
                     router.push('/')
                 }
                 if (callback?.error) {
-                    alert(callback.error);
+                    alert("Invalid login. Check credentials.");
                 }
             })
             .finally(() => setIsLoading(false))
 
     }
 
+    if (status === "authenticated") {
+        return redirect('/')
+    }
     return (
         <div className='bg-gray_white px-6 md:px-20 py-36 flex gap-12 justify-center text-seconday'>
             <div className="hidden lg:block">
@@ -65,12 +69,6 @@ const Page = () => {
                     <p className='text-[14px] text-primary'>Connect with</p>
                     <div className="flex items-center gap-3">
                         <div className="flex-center p-2 bg-white rounded-md cursor-pointer">
-                            <FaFacebook
-                                style={{ color: "#252525", fontSize: '1.5em' }}
-                                onClick={() => signIn('facebook')}
-                            />
-                        </div>
-                        <div className="flex-center p-2 bg-white rounded-md cursor-pointer">
                             <BiLogoGoogle
                                 style={{ color: "#252525", fontSize: '1.5em' }}
                                 onClick={() => signIn('google')}
@@ -80,6 +78,12 @@ const Page = () => {
                             <GrTwitter
                                 style={{ color: "#252525", fontSize: '1.5em' }}
                                 onClick={() => signIn('twitter')}
+                            />
+                        </div>
+                        <div className="flex-center p-2 bg-white rounded-md cursor-pointer">
+                            <FaFacebook
+                                style={{ color: "#252525", fontSize: '1.5em' }}
+                                onClick={() => signIn('facebook')}
                             />
                         </div>
                     </div>
@@ -102,7 +106,7 @@ const Page = () => {
                         />
                         {errors.password && <span className='text-[12px] text-red-400'>Password is required</span>}
 
-                        <button type="submit" className='w-full button py2 bg-black text-white'>Sign In</button>
+                        <button disabled={isLoading} type="submit" className='w-full button py2 bg-black text-white'>Sign In</button>
                         <Link href="/singup">
                             <p className='text-light text-end'>Sign Up</p>
                         </Link>

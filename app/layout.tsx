@@ -4,6 +4,7 @@ import { Syne } from 'next/font/google'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/Footer';
 import getCurrentUser from './actions/getCurrentUser';
+import Provider from './components/Provider';
 
 
 
@@ -26,11 +27,13 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <Navbar currentUser={currentUser} />
-        <div className='min-h-screen bg-gray_white'>
-          {children}
-        </div>
-        <Footer />
+        <Provider>
+          <Navbar currentUser={currentUser} />
+          <div className='min-h-screen bg-gray_white'>
+            {children}
+          </div>
+          <Footer />
+        </Provider>
       </body>
     </html>
   )
