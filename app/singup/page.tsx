@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { FieldValues, useForm, SubmitHandler } from "react-hook-form";
 
 import { FaFacebook } from 'react-icons/fa'
@@ -15,6 +15,7 @@ import Link from 'next/link';
 
 const Page = () => {
     const [isLoading, setIsLoading] = useState(false)
+    const { data: session } = useSession()
     const router = useRouter()
     const {
         register,
@@ -45,6 +46,10 @@ const Page = () => {
             .finally(() => setIsLoading(false))
     }
 
+    if (session) {
+        return router.push('/')
+    }
+    
     return (
         <div className='bg-gray_white px-6 md:px-20 py-36 flex gap-12 justify-center text-seconday'>
             <div className="hidden lg:block">

@@ -9,7 +9,7 @@ import { FieldValues, useForm, SubmitHandler } from "react-hook-form";
 import { FaFacebook } from 'react-icons/fa'
 import { BiLogoGoogle } from 'react-icons/bi'
 import { GrTwitter } from 'react-icons/gr'
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const Page = () => {
@@ -50,7 +50,7 @@ const Page = () => {
     }
 
     if (status === "authenticated") {
-        return redirect('/')
+        return router.push('/')
     }
     return (
         <div className='bg-gray_white px-6 md:px-20 py-36 flex gap-12 justify-center text-seconday'>
