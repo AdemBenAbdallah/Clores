@@ -19,6 +19,10 @@ Welcome to the Clores Plant Sell Website, a platform designed for plant enthusia
 - **User Accounts:** Register and log in to manage your profile and order history.
 - **Responsive Design:** Enjoy a seamless experience on both desktop and mobile devices.
 
+## Demo
+
+For a live demonstration of the Clores Clone, visit [Demo Link](https://clores.vercel.app).
+
 ## Schema Diagram
 
 ![diagram](https://github.com/AdemBenAbdallah/Clores/assets/96244394/e251ee32-7854-4dfc-b1e7-5828fe89a32e)
