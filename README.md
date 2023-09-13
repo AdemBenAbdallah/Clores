@@ -1,4 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Clores Plant Sell Website
+
+Welcome to the Clores Plant Sell Website, a platform designed for plant enthusiasts. This website offers an intuitive interface for browsing and purchasing plants, a blog to share gardening tips and stories, and a cart functionality to facilitate easy shopping.
+
+## Table of Contents
+
+- [Features](#features)
+- [Schema Diagram](#schema-diagram)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- **Plant Catalog:** Browse and search for a wide variety of plants with detailed descriptions and images.
+- **Blog:** Read and contribute articles, tips, and stories related to gardening and plant care.
+- **Cart Functionality:** Add plants to your cart, review your selections, and proceed with a secure checkout process.
+- **User Accounts:** Register and log in to manage your profile and order history.
+- **Responsive Design:** Enjoy a seamless experience on both desktop and mobile devices.
+
+## Schema Diagram
+
+![Schema Diagram](insert-image-path-here.png)
+
+Above is the schema diagram illustrating the database structure of the Clores Plant Sell Website.
 
 ## Getting Started
 
