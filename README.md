@@ -21,7 +21,8 @@ Welcome to the Clores Plant Sell Website, a platform designed for plant enthusia
 
 ## Schema Diagram
 
-![Schema Diagram](insert-image-path-here.png)
+![diagram](https://github.com/AdemBenAbdallah/Clores/assets/96244394/e251ee32-7854-4dfc-b1e7-5828fe89a32e)
+
 
 Above is the schema diagram illustrating the database structure of the Clores Plant Sell Website.
 
